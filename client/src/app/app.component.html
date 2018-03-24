@@ -1,0 +1,28 @@
+<div class="wko-main">
+
+
+  <div class="wko-nav">
+    <div class="wko-nav-links-area">
+      <div class="wko-nav-links">
+        <a class="nav-link" routerLink="">Home</a>
+        <a class="nav-link" routerLink="beers">Beers</a>
+        <a *ngIf="false" class="nav-link" routerLink="recipes">Recipes</a>
+        <a *ngIf="false" class="nav-link" routerLink="brews">Brews</a>
+        <a *ngIf="false" class="nav-link" routerLink="about">About</a>
+        <a *ngIf="false" class="nav-link" routerLink="feedback">Feedback</a>
+      </div>
+    </div>
+    <div class="wko-nav-banner">
+        <div class="wko-beer-avatar"><img src="assets/wko-beer-avatar-1.png" /></div>
+        <div class="wko-beer-avatar-label"><h3>wko.beer</h3></div>
+    </div>
+  </div>
+
+
+  <div class="wko-main-content">
+    <router-outlet></router-outlet>
+  </div>
+
+
+</div>
+

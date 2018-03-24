@@ -1,0 +1,75 @@
+/* navigation pane and main layout styles */
+
+wko-gold = #d9b964
+wko-gold-light = #d2c783
+
+wko-black = #0c0b0a
+wko-silver = #dbd7ce
+
+wko-dark = #12100b
+wko-light = #f4f0e6
+
+.wko-main
+  display flex
+  flex-direction row
+  flex 1 1 auto
+  position fixed
+  top 0
+  bottom 0
+  left 0
+  right 0
+
+.wko-nav
+  display flex
+  flex-direction column
+  width 300px
+  flex 0 0 auto
+  justify-content flex-start
+  background wko-dark
+  color wko-gold
+  font-family 'Julius Sans One', helvetica
+  border-right ridge 2px wko-black
+  a
+    color wko-gold
+
+  .wko-nav-banner
+    background wko-black
+    border-top solid 1px wko-gold-light
+
+  .wko-nav-links-area
+    display flex
+    flex 1 1 auto
+    padding-top 30px
+
+  .wko-nav-links
+    display flex
+    flex-direction column
+    flex 1 1 auto
+
+  .nav-link
+    display flex
+    flex 0 0 auto
+    height 30px
+    width 100%
+    padding-top 10px
+    justify-content center
+    cursor pointer
+  a.nav-link:hover
+    background wko-gold
+    color wko-black
+
+
+  .wko-beer-avatar,.wko-beer-avatar-label
+    display flex
+    flex 1 1 auto
+    justify-content center
+
+.wko-main-content
+  display flex
+  flex-direction column
+  width 100%
+  flex 1 1 auto
+  background wko-light
+  color wko-dark
+  padding 10px 30px
+  overflow-y auto

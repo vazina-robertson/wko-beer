@@ -1,0 +1,56 @@
+/* You can add global styles to this file, and also import other style files */
+
+// because normal fonts are boring
+// @import url('https://fonts.googleapis.com/css?family=Nunito|PT+Sans|Source+Sans+Pro');
+
+wko-gold = #d9b964
+wko-gold-light = #d2c783
+
+wko-black = #0c0b0a
+wko-silver = #dbd7ce
+
+wko-dark = #12100b
+wko-light = #f4f0e6
+
+// remove underline from a and u text
+a, u
+  text-decoration none
+
+body
+  font-family 'Exo 2', sans-serif
+  h1,h2,h3,h4,h5
+    font-family 'Julius Sans One', helvetica
+  h1
+    font-size 4rem
+    margin 15px auto
+
+
+.page-wrap
+  display flex
+  flex-direction column
+  flex 1 1 auto
+  // width 900px
+  margin 25px
+
+.heading-banner
+  color wko-gold
+  background wko-black
+  margin -30px -30px auto -30px
+  padding 50px
+
+
+.btn
+  color wko-dark
+  background none
+  border none
+  font-size 15pt
+  font-family 'Julius Sans One', helvetica
+  cursor pointer
+  opacity 0.9
+  padding 10px
+  margin 10px
+  border-radius 5px
+
+.btn:hover
+  background wko-dark
+  color wko-gold
