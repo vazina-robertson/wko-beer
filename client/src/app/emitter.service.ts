@@ -1,5 +1,5 @@
 
-import {Injectable, EventEmitter} from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 /*
 
@@ -10,7 +10,9 @@ import {Injectable, EventEmitter} from '@angular/core';
 export class EmitterService {
 
   // Event store
-  private static _emitters: { [ID: string]: EventEmitter<any> } = {};
+  private static _emitters: {
+    [ID: string]: EventEmitter<any>
+  } = { };
 
   /*
 

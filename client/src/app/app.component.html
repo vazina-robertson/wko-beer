@@ -6,10 +6,10 @@
       <div class="wko-nav-links">
         <a class="nav-link" routerLink="">Home</a>
         <a class="nav-link" routerLink="beers">Beers</a>
-        <a *ngIf="false" class="nav-link" routerLink="recipes">Recipes</a>
-        <a *ngIf="false" class="nav-link" routerLink="brews">Brews</a>
-        <a *ngIf="false" class="nav-link" routerLink="about">About</a>
-        <a *ngIf="false" class="nav-link" routerLink="feedback">Feedback</a>
+        <a *ngIf="brewerAdmin" class="nav-link" routerLink="recipes">Recipes</a>
+        <a *ngIf="brewerAdmin" class="nav-link" routerLink="brews">Brews</a>
+        <a *ngIf="brewerAdmin" class="nav-link" routerLink="about">About</a>
+        <a *ngIf="brewerAdmin" class="nav-link" routerLink="feedback">Feedback</a>
       </div>
     </div>
     <div class="wko-nav-banner">

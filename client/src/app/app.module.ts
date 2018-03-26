@@ -15,6 +15,7 @@ import { HttpErrorHandler } from './http-error-handler.service';
 import { EmitterService } from './emitter.service';
 import { AuthService } from './auth/auth.service';
 import { BeersService } from './beers.service';
+import { WindowRef } from './window-ref.service';
 
 // wko.beer components
 import { AppComponent } from './app.component';
@@ -54,7 +55,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
       multi: true,
     }],
     AuthService,
-    BeersService
+    BeersService,
+    WindowRef
   ],
   bootstrap: [AppComponent]
 })

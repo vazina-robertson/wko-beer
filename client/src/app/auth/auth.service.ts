@@ -18,13 +18,13 @@ export class AuthService {
   public token: string;
   private _storage: AsyncLocalStorage;
   private _http: HttpClient;
+  private _user;
 
   constructor(private http: HttpClient, private localStorage: AsyncLocalStorage)
   {
 
     this._storage = localStorage;
     this._http = http;
-    this._readToken();
 
   }
 
@@ -35,8 +35,43 @@ export class AuthService {
 
   }
 
+  fetchUser()
+  {
+
+    return new Promise((res, rej) => {
+      this._http.get(`http://localhost/users`)
+        .subscribe(data => {
+          this._user = data;
+          res(data);
+        }, err => rej(err));
+    });
+
+  }
+
+  async getUser()
+  {
+
+    if (this._user) {
+      return this._user;
+    }
+
+    try {
+      await this._readToken();
+    }
+    catch(err) {
+      console.error('error reading token.. bouncing');
+      return;
+    }
+
+    await this.fetchUser();
+    return this._user;
+
+  }
+
   setToken(token)
   {
+
+    this.token = token;
 
     return new Promise((res, rej) => {
       this._storage.setItem('auth_token', token)

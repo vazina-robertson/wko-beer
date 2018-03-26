@@ -1,6 +1,11 @@
 wko-dark = #12100b
 wko-light = #f4f0e6
 
+.home-content
+  display flex
+  flex-direction column
+  flex 1 1 auto
+
 .home-img
   width 800px
   opacity 0.95
@@ -18,33 +23,51 @@ wko-light = #f4f0e6
   color wko-dark
 
 .login-area
-  width 300px
+  width 700px
   height 300px
-  margin 300px auto
+  margin 225px auto
   display flex
   flex-direction column
 
 .login-username,.login-password
   display flex
   flex 1 1 auto
-  margin 15px
+  margin 15px 40px
   label
     display flex
     flex-direction column
+    font-family 'Julius Sans One', helvetica
+    font-size 15pt
     width 90px
+    margin 10px 35px
     flex 0 0 auto
   input
     height 20px
-    padding 0 5px
+    padding 10px
+    font-size 15pt
+    color lighten(wko-dark, 27%)
+    font-family 'Exo 2', sans-serif
     border-radius 5px
     display flex
     flex-direction column
-    flex 1 1 auto
+    width 275px
+    flex 0 0 auto
 
 .login-actions
   display flex
   justify-content center
+  .btn
+    padding 10px 15px
+    margin 30px
 
-.login-form-heading
+.login-error-area
+  color darken(red, 20%)
+  font-size 14pt
   display flex
   justify-content center
+  padding 15px
+
+.login-success-message
+  display flex
+  justify-content center
+  margin-top -65px

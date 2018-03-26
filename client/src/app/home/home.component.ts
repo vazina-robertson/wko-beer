@@ -5,6 +5,7 @@ import { BeersService } from '../beers.service';
 import { AsyncLocalStorage } from 'angular-async-local-storage';
 import { AuthService } from '../auth/auth.service';
 import { NgForm } from '@angular/forms';
+import { WindowRef } from '../window-ref.service';
 
 @Component({
   selector: 'app-home',
@@ -14,51 +15,63 @@ import { NgForm } from '@angular/forms';
 export class HomeComponent implements OnInit {
 
   private _auth: AuthService;
+  private _window: WindowRef;
   private loginState: boolean;
+  loginErrors;
+  private successMessage: string;
 
-  constructor(private _beers: BeersService, private auth: AuthService)
+  constructor(private auth: AuthService, private wr: WindowRef)
   {
 
     this._auth = auth;
+    this._window = wr;
 
   }
 
   async ngOnInit()
   {
 
-    this.loginState = true;
+    this.loginState = false;
 
   }
 
   toggleLoginForm()
   {
 
+    this.loginErrors = null;
     this.loginState = !this.loginState;
-
-  }
-
-  async testUserFetch()
-  {
-
-    await this._beers.getUsers().subscribe(d => {
-      console.log(d);
-    }, err => console.error('darn:', err));
 
   }
 
   async login(f: NgForm)
   {
 
-    console.log('attempting login with username', f.value.username, 'and pass', f.value.password);
-    const attempt = await this._auth.login(f.value.username, f.value.password);
-
-    if (attempt === true) {
-      // TODO: reload?
-      console.log('login successful');
-      this.loginState = false;
+    if (!f.value.username) {
+      this.loginErrors = 'Must provide username';
+      return;
     }
-    else {
-      console.error(attempt);
+
+    if (!f.value.password) {
+      this.loginErrors = 'Must provide password';
+      return;
+    }
+
+    try {
+
+      const attempt = await this._auth.login(f.value.username, f.value.password);
+
+      this.successMessage = 'Logging in...'
+
+      setTimeout(() => {
+        this._window.nativeWindow.location.reload(false);
+      }, 420);
+
+
+    }
+    catch(err) {
+
+      this.loginErrors = err.error.message;
+
     }
 
   }

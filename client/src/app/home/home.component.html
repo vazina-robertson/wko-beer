@@ -1,34 +1,43 @@
 <div class="home-page">
 
   <div class="heading-banner">
-    <h1>wko.beer</h1>
+    <h1>{{ loginState ? 'Admin Login' : 'wko.beer' }}</h1>
   </div>
 
   <div class="page-wrap">
-    <img *ngIf="!loginState" class="home-img" src="assets/desk-1.png" />
-    <h1  *ngIf="!loginState" class="headquarters-label">Homebrew Headquarters</h1>
-    <h2  *ngIf="!loginState" class="headquarters-label">(AKA: Misanthropic Brews)</h2>
-    <h2  *ngIf="!loginState" (click)="toggleLoginForm()" class="login-btn">Login</h2>
+
+    <div *ngIf="!loginState" class="home-content-area">
+      <div class="home-content">
+        <img class="home-img" src="assets/desk-1.png" />
+        <h1 class="headquarters-label">Homebrew Headquarters</h1>
+        <h2 class="headquarters-label">(AKA: Misanthropic Brews)</h2>
+        <h2 (click)="toggleLoginForm()" class="login-btn">Login</h2>
+      </div>
+    </div>
 
     <div *ngIf="loginState" class="login-area">
       <form #loginform="ngForm" (ngSubmit)="login(loginform)">
-        <div class="login-form-heading">
-          <h2>Brewer Admin Login</h2>
+        <div class="login-success-message" *ngIf="successMessage">
+          <h1>{{successMessage}}</h1>
         </div>
-        <div class="login-username">
+        <div class="login-username" *ngIf="!successMessage">
           <label>Username</label>
-          <input type="text" required ngModel name="username" #username>
+          <input required (ngModelChange)="loginErrors=null;" type="text" required ngModel name="username" #username>
         </div>
-        <div class="login-password">
+        <div class="login-password" *ngIf="!successMessage">
           <label>Password</label>
-          <input required ngModel name="password" type="password">
+          <input required (ngModelChange)="loginErrors=null;" ngModel name="password" type="password">
         </div>
-        <div class="login-actions">
+        <div class="login-actions" *ngIf="!successMessage">
           <input type="submit" value="Login" class="btn" (click)="login(loginform)">
           <input type="button" value="Cancel" class="btn" (click)="toggleLoginForm()">
         </div>
+        <div class="login-error-area" *ngIf="loginErrors">
+          {{ loginErrors }}
+        </div>
       </form>
     </div>
+
   </div>
 
 </div>
