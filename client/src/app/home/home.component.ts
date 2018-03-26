@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { BeersService } from '../beers.service';
-
-
-import { AsyncLocalStorage } from 'angular-async-local-storage';
-import { AuthService } from '../auth/auth.service';
 import { NgForm } from '@angular/forms';
+
 import { WindowRef } from '../window-ref.service';
+import { BeersService } from '../beers.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +15,7 @@ export class HomeComponent implements OnInit {
   private _auth: AuthService;
   private _window: WindowRef;
   private loginState: boolean;
-  loginErrors;
+  private loginErrors: any;
   private successMessage: string;
 
   constructor(private auth: AuthService, private wr: WindowRef)
@@ -64,8 +62,7 @@ export class HomeComponent implements OnInit {
 
       setTimeout(() => {
         this._window.nativeWindow.location.reload(false);
-      }, 420);
-
+      }, 40);
 
     }
     catch(err) {

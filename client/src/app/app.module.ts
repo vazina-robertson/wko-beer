@@ -25,6 +25,7 @@ import { BeersComponent } from './beers/beers.component';
 import { BrewsComponent } from './brews/brews.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { Autofocus } from './auto-focus.directive';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
     BeersComponent,
     BrewsComponent,
     RecipesComponent,
-    FeedbackComponent
+    FeedbackComponent,
+    Autofocus
   ],
   imports: [
     BrowserModule,

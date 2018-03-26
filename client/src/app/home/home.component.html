@@ -16,13 +16,17 @@
     </div>
 
     <div *ngIf="loginState" class="login-area">
-      <form #loginform="ngForm" (ngSubmit)="login(loginform)">
+      <form #loginform="ngForm">
         <div class="login-success-message" *ngIf="successMessage">
-          <h1>{{successMessage}}</h1>
+          <h2>{{successMessage}}</h2>
         </div>
         <div class="login-username" *ngIf="!successMessage">
           <label>Username</label>
-          <input required (ngModelChange)="loginErrors=null;" type="text" required ngModel name="username" #username>
+          <input
+            required (ngModelChange)="loginErrors=null;"
+            type="text" required ngModel name="username" #username
+            [autofocus]="loginState"
+          >
         </div>
         <div class="login-password" *ngIf="!successMessage">
           <label>Password</label>
