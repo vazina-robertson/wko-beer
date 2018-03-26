@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AsyncLocalStorage } from 'angular-async-local-storage';
+import { WkoApi } from '../wko-api.service';
 
 // token response shape
 interface TokenResponse {
@@ -19,12 +20,14 @@ export class AuthService {
   private _storage: AsyncLocalStorage;
   private _http: HttpClient;
   private _user;
+  private _api;
 
-  constructor(private http: HttpClient, private localStorage: AsyncLocalStorage)
+  constructor(private http: HttpClient, private localStorage: AsyncLocalStorage, private wkoApi: WkoApi)
   {
 
     this._storage = localStorage;
     this._http = http;
+    this._api = wkoApi;
 
   }
 
@@ -35,16 +38,12 @@ export class AuthService {
 
   }
 
-  fetchUser()
+  async fetchUser()
   {
 
-    return new Promise((res, rej) => {
-      this._http.get(`http://localhost/users`)
-        .subscribe(data => {
-          this._user = data;
-          res(data);
-        }, err => rej(err));
-    });
+    const user = await this._api.get('/users');
+    this._user = user;
+    return this._user;
 
   }
 
@@ -101,17 +100,8 @@ export class AuthService {
   async login(username: string, password: string)
   {
 
-    return new Promise((res, rej) => {
-      this._http.post('http://localhost/auth/login', { username, password })
-        .subscribe(async (resp: TokenResponse) => {
-
-          // set the token from login response
-          console.log('login resp:', resp);
-          await this.setToken(resp.token);
-          res(true);
-
-        }, err => rej(err))
-    });
+    const resp = await this._api.post('/auth/login', { username, password });
+    await this.setToken(resp.token);
 
   }
 

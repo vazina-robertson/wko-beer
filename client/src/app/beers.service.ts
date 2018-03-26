@@ -1,21 +1,15 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs/Rx';
+import { WkoApi } from './wko-api.service';
 
 @Injectable()
 export class BeersService {
 
-  _http = null;
+  private _api: WkoApi;
 
-  constructor(private http: HttpClient) {
-    this._http = http;
-  }
-
-  getApiResp()
+  constructor(private wkoApi: WkoApi)
   {
 
-    return this._http.get('http://localhost')
-      .catch((error:any) => Observable.throw(error));
+    this._api = wkoApi;
 
   }
 
@@ -36,11 +30,10 @@ export class BeersService {
 
   }
 
-  getUsers()
+  getBeers()
   {
 
-    return this._http.get('http://localhost/users')
-      .catch((error:any) => Observable.throw(error));
+    return this._api.get('/beers');
 
   }
 

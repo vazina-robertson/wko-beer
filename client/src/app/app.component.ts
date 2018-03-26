@@ -30,6 +30,7 @@ export class AppComponent implements OnInit {
       console.log(user);
 
       // TODO: check if user is brewer admin
+      // this.brewerAdmin = !!user.flags.find(f => f.name === 'brewer_admin');
       this.brewerAdmin = true;
 
     }

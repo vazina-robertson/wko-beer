@@ -26,6 +26,7 @@ import { BrewsComponent } from './brews/brews.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { Autofocus } from './auto-focus.directive';
+import { WkoApi } from './wko-api.service';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { Autofocus } from './auto-focus.directive';
     }],
     AuthService,
     BeersService,
-    WindowRef
+    WindowRef,
+    WkoApi
   ],
   bootstrap: [AppComponent]
 })
