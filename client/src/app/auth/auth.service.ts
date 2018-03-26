@@ -47,22 +47,19 @@ export class AuthService {
 
   }
 
-  async getUser()
+  async getAuthenticatedUser()
   {
 
     if (this._user) {
       return this._user;
     }
 
-    try {
-      await this._readToken();
-    }
-    catch(err) {
-      console.error('error reading token.. bouncing');
-      return;
+    await this._readToken();
+
+    if (this.token) {
+      await this.fetchUser();
     }
 
-    await this.fetchUser();
     return this._user;
 
   }

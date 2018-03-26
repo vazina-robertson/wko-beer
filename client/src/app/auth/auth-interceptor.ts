@@ -15,8 +15,11 @@ export class AuthInterceptor implements HttpInterceptor {
   auth;
   inj;
 
-  constructor(inj: Injector) {
+  constructor(inj: Injector)
+  {
+
     this.inj = inj;
+
   }
 
   /*
@@ -33,7 +36,6 @@ export class AuthInterceptor implements HttpInterceptor {
     }
 
     const t = this.auth.getAuthorizationToken();
-    console.log('interceptor sees token as', t);
 
     // attach token if present
     if (t) {

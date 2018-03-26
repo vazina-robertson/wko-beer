@@ -8,9 +8,8 @@ import { AuthService } from './auth/auth.service';
 })
 export class AppComponent implements OnInit {
 
-  title = 'wko.beer';
-  brewerAdmin: boolean;
-
+  private title = 'wko.beer';
+  private brewerAdmin: boolean;
   private _auth: AuthService;
 
   constructor(private auth: AuthService)
@@ -26,12 +25,13 @@ export class AppComponent implements OnInit {
   {
 
     try {
-      const user = await this._auth.getUser();
-      console.log(user);
+      const user = await this._auth.getAuthenticatedUser();
 
-      // TODO: check if user is brewer admin
-      // this.brewerAdmin = !!user.flags.find(f => f.name === 'brewer_admin');
-      this.brewerAdmin = true;
+      if (user) {
+        // TODO: check if user is brewer admin
+        // this.brewerAdmin = !!user.flags.find(f => f.name === 'brewer_admin');
+        this.brewerAdmin = true;
+      }
 
     }
     catch(err) {
