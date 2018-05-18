@@ -17,7 +17,8 @@ a, u
   text-decoration none
 
 body
-  font-family 'Exo 2', sans-serif
+  font-family 'Libre Baskerville', 'Nanum Gothic', 'Exo 2', sans-serif
+  font-size 1.3em
   h1,h2,h3,h4,h5
     font-family 'Julius Sans One', helvetica
   h1
@@ -51,6 +52,18 @@ body
   margin 10px
   border-radius 5px
 
+.btn:focus
+  outline none
+
 .btn:hover
   background wko-dark
   color wko-gold
+
+a.link
+  color darken(wko-gold, 5%)
+  text-decoration underline
+  opacity 0.75
+
+a.link:hover
+  color lighten(wko-gold, 15%)
+  opacity 0.9
