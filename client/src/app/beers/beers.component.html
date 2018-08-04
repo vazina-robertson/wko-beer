@@ -5,7 +5,30 @@
   </div>
 
   <div class="page-wrap">
+
+  <div *ngIf="!beers" class="beers-list">
     <h2>...Beer List Coming Soon</h2>
+  </div>
+
+  <mat-list *ngIf="beers" class="beers-list">
+      <h2 mat-subheader>Latest Beers</h2>
+
+      <!-- <mat-list-item *ngFor="let beer of beers">
+          <p>TODO</p>
+      </mat-list-item> -->
+
+      <mat-list-item>
+          <p>beer 1</p>
+      </mat-list-item>
+      <mat-list-item>
+          <p>beer 2</p>
+      </mat-list-item>
+      <mat-list-item>
+          <p>beer 3</p>
+      </mat-list-item>
+
+  </mat-list>
+
   </div>
 
 </div>

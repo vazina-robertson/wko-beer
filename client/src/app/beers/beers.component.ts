@@ -18,11 +18,11 @@ export class BeersComponent implements OnInit {
 
   }
 
-  ngOnInit()
+  async ngOnInit()
   {
 
-    const beers = this._beerSvc.getBeerCounts();
-    console.log('beers:', beers);
+    this.beers = await this._beerSvc.getBeers();
+    console.log('beers:', this.beers);
 
   }
 

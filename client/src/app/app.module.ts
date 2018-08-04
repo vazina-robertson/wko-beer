@@ -3,12 +3,14 @@ import { NgModule, Injectable, forwardRef, Inject, Injector } from '@angular/cor
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule }   from '@angular/forms';
 
-// storage
-import { AsyncLocalStorageModule } from 'angular-async-local-storage';
-
 // http
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/auth-interceptor';
+
+// Material Design
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatListModule } from '@angular/material/list';
 
 // wko.beer services
 import { HttpErrorHandler } from './http-error-handler.service';
@@ -43,9 +45,12 @@ import { WkoApi } from './wko-api.service';
   imports: [
     BrowserModule,
     FormsModule,
-    AsyncLocalStorageModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatListModule
   ],
   providers: [
     HttpClient,

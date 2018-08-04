@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AsyncLocalStorage } from 'angular-async-local-storage';
+import { LocalStorage } from '@ngx-pwa/local-storage';
 import { WkoApi } from '../wko-api.service';
 
 // token response shape
@@ -17,12 +17,12 @@ interface TokenResponse {
 export class AuthService {
 
   public token: string;
-  private _storage: AsyncLocalStorage;
+  private _storage: LocalStorage;
   private _http: HttpClient;
   private _user;
   private _api;
 
-  constructor(private http: HttpClient, private localStorage: AsyncLocalStorage, private wkoApi: WkoApi)
+  constructor(private http: HttpClient, private localStorage: LocalStorage, private wkoApi: WkoApi)
   {
 
     this._storage = localStorage;
