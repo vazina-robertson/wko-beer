@@ -5,7 +5,10 @@
   </div>
 
   <div class="page-wrap">
-      <h2>...Brews Page Coming Soon</h2>
+    <div class="new-brew-btn-area">
+      <input type="button" value="New" class="btn new-brew-btn" (click)="createBrew()">
+    </div>
+    <h2 *ngIf="!brews || !brews.length">...No Brews to List</h2>
   </div>
 
 </div>

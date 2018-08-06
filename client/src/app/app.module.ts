@@ -1,13 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injectable, forwardRef, Inject, Injector } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 // http
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './auth/auth-interceptor';
 
 // Material Design
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatListModule } from '@angular/material/list';
@@ -29,6 +32,7 @@ import { RecipesComponent } from './recipes/recipes.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { Autofocus } from './auto-focus.directive';
 import { WkoApi } from './wko-api.service';
+import { BrewCreationComponent } from './brew-creation/brew-creation.component';
 
 
 @NgModule({
@@ -40,7 +44,8 @@ import { WkoApi } from './wko-api.service';
     BrewsComponent,
     RecipesComponent,
     FeedbackComponent,
-    Autofocus
+    Autofocus,
+    BrewCreationComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +53,10 @@ import { WkoApi } from './wko-api.service';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatRadioModule,
+    MatFormFieldModule,
     MatButtonModule,
     MatCheckboxModule,
     MatListModule

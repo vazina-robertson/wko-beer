@@ -1,0 +1,31 @@
+<div>
+
+    <div class="heading-banner">
+      <h1>New Brew</h1>
+    </div>
+  
+    <div class="page-wrap">
+      
+        <h2>Create a new Brew Entry</h2>
+
+        <div class="new-brew-form" [formGroup]="newBrewForm">
+          
+            <mat-form-field appearance="outline">
+              <mat-label>Name</mat-label>
+              <input matInput placeholder="Brew name">
+            </mat-form-field>
+
+          <div>
+            <label>Gone: </label>
+            <mat-radio-group formControlName="gone">
+              <mat-radio-button value="true">Yes</mat-radio-button>
+              <mat-radio-button value="false">No</mat-radio-button>
+            </mat-radio-group>
+          </div>
+
+        </div>
+
+    </div>
+  
+  </div>
+  

@@ -8,6 +8,7 @@ import { BeersComponent } from './beers/beers.component';
 import { BrewsComponent } from './brews/brews.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { FeedbackComponent } from './feedback/feedback.component';
+import { BrewCreationComponent } from './brew-creation/brew-creation.component';
 
 const routes: Routes = [
   { path: '',         component: HomeComponent },
@@ -15,7 +16,9 @@ const routes: Routes = [
   { path: 'beers',    component: BeersComponent },
   { path: 'brews',    component: BrewsComponent },
   { path: 'recipes',  component: RecipesComponent },
-  { path: 'feedback', component: FeedbackComponent }
+  { path: 'feedback', component: FeedbackComponent },
+  { path: 'brew-creation', component: BrewCreationComponent }
+
 ];
 
 @NgModule({
