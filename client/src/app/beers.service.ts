@@ -62,4 +62,11 @@ export class BeersService {
 
   }
 
+  createNewBrew(data)
+  {
+
+    this._api.post('/brews', data);
+
+  }
+
 }

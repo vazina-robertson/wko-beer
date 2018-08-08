@@ -8,11 +8,11 @@
       
         <h2>Create a new Brew Entry</h2>
 
-        <div class="new-brew-form" [formGroup]="newBrewForm">
+        <div class="new-brew-form" [formGroup]="newBrewForm" (ngSubmit)="createNewBrew()">
           
             <mat-form-field appearance="outline">
               <mat-label>Name</mat-label>
-              <input matInput placeholder="Brew name">
+              <input formControlName="name" matInput placeholder="Brew name" [autofocus]>
             </mat-form-field>
 
           <div>
@@ -21,6 +21,12 @@
               <mat-radio-button value="true">Yes</mat-radio-button>
               <mat-radio-button value="false">No</mat-radio-button>
             </mat-radio-group>
+          </div>
+
+
+          <div class="brew-creation-btn-area">
+            <input type="submit" value="Login" class="btn" (click)="createNewBrew()">
+            <input type="button" value="Cancel" class="btn" (click)="cancel()">
           </div>
 
         </div>
