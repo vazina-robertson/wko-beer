@@ -9,6 +9,7 @@ wko-steel = darken(silver, 5%)
 wko-dark = #12100b
 wko-light = #f4f0e6
 wko-primary = #FFE834
+wko-accent = #B4A09A
 
 
 .new-brew-btn
@@ -20,6 +21,25 @@ wko-primary = #FFE834
     color wko-primary
 
 
-
 .brews-list *
     color wko-steel
+    height 60px
+    font-size 1em
+    font-family 'Libre Baskerville', 'Nanum Gothic', 'Exo 2', sans-serif
+
+.brew-list-item
+    display flex
+    height 50px
+    width 100%
+    p
+        margin 20px 10px
+        min-width 20px
+        min-height 20px
+.brew-list-item:hover
+    background wko-accent
+    width 100%
+    cursor pointer
+    p
+        color wko-dark
+
+    

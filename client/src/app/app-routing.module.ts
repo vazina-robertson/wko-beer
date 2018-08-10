@@ -9,15 +9,17 @@ import { BrewsComponent } from './brews/brews.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { BrewCreationComponent } from './brew-creation/brew-creation.component';
+import { BrewDetailsComponent } from './brew-details/brew-details.component';
 
 const routes: Routes = [
-  { path: '',         component: HomeComponent },
-  { path: 'about',    component: AboutComponent },
-  { path: 'beers',    component: BeersComponent },
-  { path: 'brews',    component: BrewsComponent },
-  { path: 'recipes',  component: RecipesComponent },
-  { path: 'feedback', component: FeedbackComponent },
-  { path: 'brew-creation', component: BrewCreationComponent }
+  { path: '',              component: HomeComponent },
+  { path: 'about',         component: AboutComponent },
+  { path: 'beers',         component: BeersComponent },
+  { path: 'brews',         component: BrewsComponent },
+  { path: 'recipes',       component: RecipesComponent },
+  { path: 'feedback',      component: FeedbackComponent },
+  { path: 'brew-creation', component: BrewCreationComponent },
+  { path: 'brew-details/:id',  component: BrewDetailsComponent },
 
 ];
 

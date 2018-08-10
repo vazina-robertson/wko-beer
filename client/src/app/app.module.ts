@@ -37,6 +37,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { Autofocus } from './auto-focus.directive';
 import { WkoApi } from './wko-api.service';
 import { BrewCreationComponent } from './brew-creation/brew-creation.component';
+import { BrewDetailsComponent } from './brew-details/brew-details.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { BrewCreationComponent } from './brew-creation/brew-creation.component';
     RecipesComponent,
     FeedbackComponent,
     Autofocus,
-    BrewCreationComponent
+    BrewCreationComponent,
+    BrewDetailsComponent
   ],
   imports: [
     BrowserModule,

@@ -14,7 +14,11 @@
       <h2 *ngIf="!brews || !brews.length">...No Brews to List</h2>
   
         <mat-list-item *ngFor="let brew of brews">
-            <h2>{{ brew.name + (brew.batch_number > 1 ? ' (' + brew.batch_number + ')' : '')}}</h2>
+          <div class="brew-list-item">
+            <p>{{brew.brew_number}}</p>
+            <p>{{brew.brew_date}}</p>
+            <p class="brew-list-name">{{ brew.name + (brew.batch_number > 1 ? ' (' + brew.batch_number + ')' : '')}}</p>
+          </div>
         </mat-list-item>
   
     </mat-list>
