@@ -34,7 +34,7 @@ export class AuthService {
   getAuthorizationToken()
   {
 
-    return this.token;
+    return this.token || localStorage.getItem('auth_token');
 
   }
 
@@ -69,6 +69,10 @@ export class AuthService {
 
     this.token = token;
 
+    // non async
+    localStorage.setItem('auth_token', token);
+
+    // save to async storage as well
     return new Promise((res, rej) => {
       this._storage.setItem('auth_token', token)
         .subscribe(() => res(token), err => rej(err));
