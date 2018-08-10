@@ -12,8 +12,12 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
+import { MatCheckboxModule } from '@angular/material';
+import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 // wko.beer services
 import { HttpErrorHandler } from './http-error-handler.service';
@@ -53,6 +57,10 @@ import { BrewCreationComponent } from './brew-creation/brew-creation.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatAutocompleteModule,
+    MatTooltipModule,
+    MatListModule,
+    MatDatepickerModule,
     ReactiveFormsModule,
     MatInputModule,
     MatRadioModule,

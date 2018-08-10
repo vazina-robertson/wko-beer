@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BeersService } from '../beers.service';
 
 @Component({
   selector: 'app-brews',
@@ -8,11 +9,18 @@ import { Router } from '@angular/router';
 })
 export class BrewsComponent implements OnInit {
 
-  constructor(private router: Router) {
+  public brews : Array<any>;
+
+  private _svc : BeersService;
+
+  constructor(private router: Router, private svc: BeersService) {
     this.router = router;
+    this._svc = svc;
   }
 
-  ngOnInit() {
+  async ngOnInit() {
+    this.brews = await this._svc.getBrews();
+    console.log('brews: ', this.brews);
   }
 
   createBrew()

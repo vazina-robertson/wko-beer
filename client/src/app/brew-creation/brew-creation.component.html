@@ -5,15 +5,41 @@
     </div>
   
     <div class="page-wrap">
-      
-        <h2>Create a new Brew Entry</h2>
 
         <div class="new-brew-form" [formGroup]="newBrewForm" (ngSubmit)="createNewBrew()">
           
-            <mat-form-field appearance="outline">
-              <mat-label>Name</mat-label>
-              <input formControlName="name" matInput placeholder="Brew name" [autofocus]>
-            </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput placeholder="Brew name" [autofocus]>
+          </mat-form-field>
+
+          <mat-form-field class="beer-select-autocomplete" appearance="outline">
+            <input matInput placeholder="Beer (optional)" formControlName="beerId" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <!-- <img class="beer-logo-img" aria-hidden src="beer-logo.png" height="25"> -->
+              <mat-option *ngFor="let beer of beers" [value]="beer.name" >
+                <span>{{beer.name}}</span> |
+                <small>{{beer.description}}</small>
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <mat-form-field color="primary" appearance="outline">
+            <mat-label>Brew Date</mat-label>
+            <input matInput [matDatepicker]="createbrewdatepicker" formControlName="brewDate">
+            <mat-datepicker-toggle matSuffix [for]="createbrewdatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #createbrewdatepicker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+              <mat-label>Brew Number</mat-label>
+              <input formControlName="brewNumber" matInput placeholder="Brew #">
+          </mat-form-field>
+
+          <mat-form-field appearance="outline">
+              <mat-label>Batch Number</mat-label>
+              <input formControlName="batchNumber" matInput placeholder="Batch #">
+          </mat-form-field>
 
           <div>
             <label>Gone: </label>
@@ -25,7 +51,7 @@
 
 
           <div class="brew-creation-btn-area">
-            <input type="submit" value="Login" class="btn" (click)="createNewBrew()">
+            <input type="submit" value="Submit" class="btn" (click)="createNewBrew()">
             <input type="button" value="Cancel" class="btn" (click)="cancel()">
           </div>
 

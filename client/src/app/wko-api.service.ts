@@ -39,7 +39,7 @@ export class WkoApi {
 
   }
 
-  get(endpoint: string)
+  get(endpoint: string) : Promise<any>
   {
 
     const url = this._joinUrl(this._server, endpoint);
@@ -49,7 +49,7 @@ export class WkoApi {
 
   }
 
-  post(endpoint: string, data: any)
+  post(endpoint: string, data: any) : Promise<any>
   {
 
     const url = this._joinUrl(this._server, endpoint);
@@ -59,7 +59,7 @@ export class WkoApi {
 
   }
 
-  put(endpoint: string, data: any)
+  put(endpoint: string, data: any) : Promise<any>
   {
 
     const url = this._joinUrl(this._server, endpoint);
@@ -69,7 +69,7 @@ export class WkoApi {
 
   }
 
-  delete(endpoint: string)
+  delete(endpoint: string) : Promise<any>
   {
 
     const url = this._joinUrl(this._server, endpoint);

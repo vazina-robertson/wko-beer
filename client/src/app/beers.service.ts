@@ -55,17 +55,24 @@ export class BeersService {
 
   }
 
-  getBeers()
+  getBeers() : Promise<any[]>
   {
 
     return this._api.get('/beers');
 
   }
 
-  createNewBrew(data)
+  getBrews() : Promise<any[]>
   {
 
-    this._api.post('/brews', data);
+    return this._api.get('/brews');
+
+  }
+
+  createNewBrew(data) : Promise<any>
+  {
+
+    return this._api.post('/brews', data);
 
   }
 
