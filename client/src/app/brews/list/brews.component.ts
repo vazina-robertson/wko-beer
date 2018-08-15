@@ -21,7 +21,6 @@ export class BrewsComponent implements OnInit {
 
   async ngOnInit() {
     this.brews = await this._svc.getBrews();
-    // console.log('brews: ', this.brews);
     this.brews = this.brews.map(b => {
       b.brew_date = moment(b.brew_date).format('MM/DD/YYYY');
       return b;
@@ -30,7 +29,6 @@ export class BrewsComponent implements OnInit {
 
   createBrew()
   {
-    console.log(this.router);
     this.router.navigate([ 'brew-creation' ]);
   }
 

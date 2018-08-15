@@ -2,7 +2,7 @@
 
     <div class="heading-banner">
       <h1>
-        Brews Details
+        Brew Details
         <button mat-mini-fab color="none" class="btn edit-brew-btn" (click)="createBrew()" matTooltip="Edit">
           <i class="fa fa-edit"></i>
         </button>
@@ -10,7 +10,37 @@
     </div>
   
     <div class="page-wrap">
-      <div>Brew Details Page</div>
+      <div *ngIf="brew" class="brew-details-page">
+        <h1>{{brew.name}}</h1>
+        <h2>Beer</h2>
+        <p>{{brew.beer_name ? brew.beer_name : '(NA)'}}</p>
+        <h2>Info</h2>
+        <div class="brew-details-info">
+          <p>Brew Date: {{brew.brewDate}}</p>
+          <p>Gone: {{brew.gone === false ? 'No' : 'Yes'}}</p>
+
+          <p>Brew Number: {{brew.brew_number}}</p>
+          <p>Batch Number: {{brew.batch_number}}</p>
+          <p>Original Gravity: {{brew.og ? brew.og : '(NA)'}}</p>
+          <p>Final Gravity: {{brew.fg ? brew.fg : '(NA)'}}</p>
+          <p>IBU: {{brew.ibu ? brew.ibu : '(NA)'}}</p>
+
+          <p>Brew Phase: {{brew.phase ? brew.phase : '(NA)'}}</p>
+          <p>Style: {{brew.style ? brew.style : '(NA)'}}</p>
+
+        </div>
+
+        <div class="brew-details-recipe-area">
+          <h2>Recipe</h2>
+          <p *ngIf="!brew.recipe_id">No Recipe Found</p>
+          <p (click)="goToRecipe()" *ngIf="brew.recipe_id">Linked Recipe</p>
+        </div>
+
+        <div class="brew-details-notes-area">
+            <h2>Brew Notes</h2>
+            <p *ngIf="!brewNotes || !brewNotes.length">No Notes Found</p>
+            <p (click)="goToRecipe()" *ngIf="brewNotes && brewNotes.length">Notes list comming soon...</p>
+        </div>
     </div>
   
   </div>

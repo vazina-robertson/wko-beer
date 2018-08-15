@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BeersService } from '../../beers.service';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-brew-details',
@@ -10,21 +12,28 @@ export class BrewDetailsComponent implements OnInit {
 
   private _router : Router;
   private _route : ActivatedRoute;
-  constructor(private route: ActivatedRoute, private router: Router) {
+  private _svc : BeersService;
+  
+  public brew : any;
+
+  constructor(private route: ActivatedRoute, private router: Router, private svc: BeersService) {
     this._route = route;
     this._router = router;
+    this._svc = svc;
   }
 
   async ngOnInit() {
-    console.log(await this.getParam());
-    // TODO fetch details
+    const id = await this.getParam();
+    this.brew = await this._svc.getBrew(id);
+    this.brew.brewDate = moment(this.brew.brew_date).format('MMMM DD, YYYY');
+    console.log(this.brew);
   }
 
   getParam()
   {
     return new Promise((res, rej) => {
       this.route.params.subscribe(params => {
-        console.log(params);
+
         if (params['id']) { 
           res(params['id'])
         }

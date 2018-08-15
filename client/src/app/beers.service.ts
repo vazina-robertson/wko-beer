@@ -69,6 +69,13 @@ export class BeersService {
 
   }
 
+  getBrew(id) : Promise<any>
+  {
+
+    return this._api.get(`/brews/${id}`);
+
+  }
+
   createNewBrew(data) : Promise<any>
   {
 
