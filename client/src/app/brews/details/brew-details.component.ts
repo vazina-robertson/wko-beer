@@ -29,6 +29,12 @@ export class BrewDetailsComponent implements OnInit {
     console.log(this.brew);
   }
 
+  editBrew()
+  {
+    // TODO
+    console.log('//TODO: implement edit brew');
+  }
+
   getParam()
   {
     return new Promise((res, rej) => {

@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule }    from '@angular/forms';
 
 // Material Design
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material';
@@ -19,13 +20,16 @@ import { BrewCreationComponent } from './creation/brew-creation.component';
 import { BrewDetailsComponent } from './details/brew-details.component';
 import { BrewsComponent } from './list/brews.component';
 import { BrewsRoutingModule } from './brews-routing.module';
+import { WkoDirectivesModule } from '../directives/wko-directives.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     BrewsRoutingModule,
+    WkoDirectivesModule,
     MatAutocompleteModule,
+    MatIconModule,
     MatTooltipModule,
     MatListModule,
     MatDatepickerModule,
@@ -40,7 +44,7 @@ import { BrewsRoutingModule } from './brews-routing.module';
   declarations: [
     BrewsComponent,
     BrewCreationComponent,
-    BrewDetailsComponent
+    BrewDetailsComponent,
   ],
   providers: [ BeersService ]
 })

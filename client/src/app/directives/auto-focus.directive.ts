@@ -1,5 +1,5 @@
 import { Directive, ElementRef, Input } from "@angular/core";
-import { WindowRef } from "./window-ref.service";
+import { WindowRef } from "../window-ref.service";
 
 /*
 

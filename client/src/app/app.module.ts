@@ -33,9 +33,11 @@ import { AboutComponent } from './about/about.component';
 import { BeersComponent } from './beers/beers.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { FeedbackComponent } from './feedback/feedback.component';
-import { Autofocus } from './auto-focus.directive';
 import { WkoApi } from './wko-api.service';
+
+// wko.beer modules
 import { BrewsModule } from './brews/brews.module';
+import { WkoDirectivesModule } from './directives/wko-directives.module';
 
 
 @NgModule({
@@ -45,13 +47,13 @@ import { BrewsModule } from './brews/brews.module';
     AboutComponent,
     BeersComponent,
     RecipesComponent,
-    FeedbackComponent,
-    Autofocus
+    FeedbackComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    WkoDirectivesModule,
     BrewsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
