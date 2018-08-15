@@ -31,13 +31,11 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { BeersComponent } from './beers/beers.component';
-import { BrewsComponent } from './brews/brews.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 import { Autofocus } from './auto-focus.directive';
 import { WkoApi } from './wko-api.service';
-import { BrewCreationComponent } from './brew-creation/brew-creation.component';
-import { BrewDetailsComponent } from './brew-details/brew-details.component';
+import { BrewsModule } from './brews/brews.module';
 
 
 @NgModule({
@@ -46,17 +44,15 @@ import { BrewDetailsComponent } from './brew-details/brew-details.component';
     HomeComponent,
     AboutComponent,
     BeersComponent,
-    BrewsComponent,
     RecipesComponent,
     FeedbackComponent,
-    Autofocus,
-    BrewCreationComponent,
-    BrewDetailsComponent
+    Autofocus
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
+    BrewsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,

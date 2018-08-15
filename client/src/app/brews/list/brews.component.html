@@ -14,7 +14,7 @@
       <h2 *ngIf="!brews || !brews.length">...No Brews to List</h2>
   
         <mat-list-item *ngFor="let brew of brews">
-          <div class="brew-list-item">
+          <div class="brew-list-item" (click)="goToBrew(brew.id)">
             <p>{{brew.brew_number}}</p>
             <p>{{brew.brew_date}}</p>
             <p class="brew-list-name">{{ brew.name + (brew.batch_number > 1 ? ' (' + brew.batch_number + ')' : '')}}</p>

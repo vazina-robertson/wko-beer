@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BeersService } from '../beers.service';
+import { BeersService } from '../../beers.service';
 import * as moment from 'moment';
 
 @Component({
@@ -21,7 +21,7 @@ export class BrewsComponent implements OnInit {
 
   async ngOnInit() {
     this.brews = await this._svc.getBrews();
-    console.log('brews: ', this.brews);
+    // console.log('brews: ', this.brews);
     this.brews = this.brews.map(b => {
       b.brew_date = moment(b.brew_date).format('MM/DD/YYYY');
       return b;
@@ -32,6 +32,11 @@ export class BrewsComponent implements OnInit {
   {
     console.log(this.router);
     this.router.navigate([ 'brew-creation' ]);
+  }
+
+  goToBrew(id)
+  {
+    this.router.navigate([ '/brews', id ]);
   }
 
 }
