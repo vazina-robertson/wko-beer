@@ -23,6 +23,7 @@ import { BrewsComponent } from './list/brews.component';
 // brew modules / wko imported modules
 import { BrewsRoutingModule } from './brews-routing.module';
 import { WkoDirectivesModule } from '../directives/wko-directives.module';
+import { BrewEditComponent } from './edit/brew-edit.component';
 
 @NgModule({
   imports: [
@@ -47,6 +48,7 @@ import { WkoDirectivesModule } from '../directives/wko-directives.module';
     BrewsComponent,
     BrewCreationComponent,
     BrewDetailsComponent,
+    BrewEditComponent
   ],
   providers: [ BeersService ]
 })

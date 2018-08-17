@@ -31,8 +31,7 @@ export class BrewDetailsComponent implements OnInit {
 
   editBrew()
   {
-    // TODO
-    console.log('// TODO: implement edit brew');
+    this._router.navigate([ 'brews', this.brew.id, 'edit' ])
   }
 
   goToBrewNoteCreation()
