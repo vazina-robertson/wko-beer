@@ -14,11 +14,13 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-
+// brews components
 import { BeersService } from '../beers.service';
 import { BrewCreationComponent } from './creation/brew-creation.component';
 import { BrewDetailsComponent } from './details/brew-details.component';
 import { BrewsComponent } from './list/brews.component';
+
+// brew modules / wko imported modules
 import { BrewsRoutingModule } from './brews-routing.module';
 import { WkoDirectivesModule } from '../directives/wko-directives.module';
 

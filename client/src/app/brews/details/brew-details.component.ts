@@ -23,7 +23,7 @@ export class BrewDetailsComponent implements OnInit {
   }
 
   async ngOnInit() {
-    const id = await this.getParam();
+    const id = await this.getParam('id');
     this.brew = await this._svc.getBrew(id);
     this.brew.brewDate = moment(this.brew.brew_date).format('MMMM DD, YYYY');
     console.log(this.brew);
@@ -32,19 +32,31 @@ export class BrewDetailsComponent implements OnInit {
   editBrew()
   {
     // TODO
-    console.log('//TODO: implement edit brew');
+    console.log('// TODO: implement edit brew');
   }
 
-  getParam()
+  goToBrewNoteCreation()
+  {
+    // TODO
+    console.log('// TODO: implement create-brew-note page');
+  }
+
+  goToLinkRecipePage()
+  {
+    // TODO
+    console.log('// TODO: implement link-recipe page');
+  }
+
+  getParam(param)
   {
     return new Promise((res, rej) => {
       this.route.params.subscribe(params => {
 
-        if (params['id']) { 
-          res(params['id'])
+        if (params[param]) { 
+          res(params[param])
         }
         else {
-          rej(params['id']);
+          rej(params[param]);
         }
 
       });
