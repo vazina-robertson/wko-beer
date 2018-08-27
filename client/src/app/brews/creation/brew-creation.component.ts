@@ -77,7 +77,16 @@ export class BrewCreationComponent implements OnInit {
     };
 
     if (this.newBrewForm.value.beerId) {
-      brew.beer_id = this.beers.find(x => x.name === this.newBrewForm.value.beerId).id;
+      console.log(this.newBrewForm.value.beerId);
+      const beer = this.beers.find(x => x.name === this.newBrewForm.value.beerId);
+
+      if (beer && beer.id) {
+        brew.beer_id = beer.id;
+      }
+      else {
+        // TODO: warning beer not found
+        // and show beer-creation link
+      }
     }
 
     console.log('brew to create: ', brew);

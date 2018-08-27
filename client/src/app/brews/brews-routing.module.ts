@@ -12,7 +12,7 @@ const brewsRoutes: Routes = [
   { path: 'brews/:id/edit', component: BrewEditComponent },
   { path: 'brews/:id', component: BrewDetailsComponent },
 ];
- 
+
 @NgModule({
   imports: [
     RouterModule.forChild(brewsRoutes)
